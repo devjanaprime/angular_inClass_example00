@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8">
+    <title>In Class Angular Example</title>
+    <script src="vendors/angular.min.js" charset="utf-8"></script>
+    <script src="scripts/script.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <h1>In Class Angular Example</h1>
+    <div ng-controller='pinkyController'>
+      <input type="text" ng-model="brainiacBinder" value="" placeholder="2 way bind input">
+      <input type="text" ng-model="brainiacBinder2" value="" placeholder="2 way bind input2">
+      <p>Two way bind output: {{ brainiacBinder }} {{ brainiacBinder2 }}</p>
+      <button type="button" name="button" ng-click="checkInput()">Check Input</button>
+        <p ng-repeat='duck in allTheDucks'>{{ duck.inputer1 }} {{ duck.inputer2 }}</p>
+    </div>
+
+  </body>
+</html>
