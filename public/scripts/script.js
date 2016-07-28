@@ -1,9 +1,11 @@
 console.log( 'script.js sourced' );
 
 // create an ng app for our page
+// don't forget to set ng-app in HTML!!!
 var myApp=angular.module( 'myApp', [] );
 
 // create a controller
+// remember, only HTML elements within the controller's scope can use whatever is within the controller
 myApp.controller( 'pinkyController', [ '$scope', '$http', function( $scope, $http ){
   // create an array to hold all objects
   $scope.allTheDucks=[];
@@ -15,31 +17,6 @@ myApp.controller( 'pinkyController', [ '$scope', '$http', function( $scope, $htt
     };
     // pushing the object to an array
     $scope.allTheDucks.push( objectToSend );
-
-    ////////////// TEST GET /////////////////
-    // REQUIRES $http dependency injection //
-    $http({
-      method: 'GET',
-      url: '/testGet'
-    }).then( function( response ){
-      console.log( response.data );
-    }), function myError( response ){
-      console.log( response.statusText );
-    };
-    console.log( 'back from testGet call' );
-
-
-    ///////////////// TEST POST //////////////////
-    // also REQUIRES $http dependency injection //
-    $http({
-      method: 'POST',
-      url: '/testPost',
-      data: objectToSend
-    }).then( function( response ){
-      console.log( response.data );
-    }), function myError( response ){
-      console.log( response.statusText );
-    };
-    console.log( 'back from testPost call' );
+    // note: $scope.allTheDucks is refered to as "allTheDucks" in HTML
   }; // end check input function
 }]);

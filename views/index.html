@@ -3,18 +3,22 @@
   <head>
     <meta charset="utf-8">
     <title>In Class Angular Example</title>
+    <!-- angular must be sourced in before the scripts that use it -->
     <script src="vendors/angular.min.js" charset="utf-8"></script>
     <script src="scripts/script.js" charset="utf-8"></script>
   </head>
   <body>
     <h1>In Class Angular Example</h1>
+    <!-- this div is using our pinkyController -->
     <div ng-controller='pinkyController'>
+      <!-- brainiacBinder and brainiacBinder2 are within the pinkyController so they can be used here -->
       <input type="text" ng-model="brainiacBinder" value="" placeholder="2 way bind input">
       <input type="text" ng-model="brainiacBinder2" value="" placeholder="2 way bind input2">
+      <!-- {{ EXPRESSION }}, used here for a two-way bind with the brainiac models -->
       <p>Two way bind output: {{ brainiacBinder }} {{ brainiacBinder2 }}</p>
+      <!-- the ng-click below uses the "checkInput" function within our pinkyController -->
       <button type="button" name="button" ng-click="checkInput()">Check Input</button>
         <p ng-repeat='duck in allTheDucks'>{{ duck.inputer1 }} {{ duck.inputer2 }}</p>
     </div>
-
   </body>
 </html>
